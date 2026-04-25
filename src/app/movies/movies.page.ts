@@ -16,5 +16,5 @@ export class MoviesPage implements OnInit {
 
   ngOnInit() {
   }
-
+//
 }
