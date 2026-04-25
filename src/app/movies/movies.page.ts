@@ -40,5 +40,13 @@ async openDetailsPage() {
   this.router.navigate(['/movie-details'])
 }
 
+async addToFavourites(movie: any) {
+  let favourites = await this.ds.get('favourites') || [];
+  favourites.push(movie);
+}
+
+async openFavourites() {
+  this.router.navigate(['/favourites']);
+}
 
 }
