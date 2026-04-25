@@ -20,4 +20,9 @@ export class HomePage {
    await this.ds.set("kw" , this.keyword);
     this.router.navigate(['/movies'])
   }
+
+  async openFavourites() {
+    await this.ds.set("kw" , this.keyword);
+     this.router.navigate(['/favourites'])
+   }
 }
