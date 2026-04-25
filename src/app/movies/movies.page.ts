@@ -15,11 +15,10 @@ import { HttpOptions } from '@capacitor/core';
 })
 export class MoviesPage implements OnInit {
 
-
-  keyword:string = "";
-  apiKey= "9a441077651a243fce67c40cc4c5bf8d"
-  options: HttpOptions = {
-    url:"https://api.themoviedb.org/3/search/movie?query=toy story&api_key=" + this.apiKey
+    keyword:string = "";
+    apiKey= "9a441077651a243fce67c40cc4c5bf8d"
+    options: HttpOptions = {
+    url:"https://api.themoviedb.org/3/search/movie?query="
   }
 
   constructor(private ds:DataService, private mhs: MyHttpService) { }
@@ -29,7 +28,7 @@ export class MoviesPage implements OnInit {
   }
     async getKW() {
     this.keyword = await this.ds.get('kw');
-    this.options.url.concat(this.keyword)
+    this.options.url = this.options.url + this.keyword + "&api_key=" + this.apiKey;
     this.mhs.get(this.options)
   }
 
