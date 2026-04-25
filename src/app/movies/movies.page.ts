@@ -17,6 +17,7 @@ export class MoviesPage implements OnInit {
 
     keyword:string = "";
     apiKey= "9a441077651a243fce67c40cc4c5bf8d"
+    movieInfo!: any;
     options: HttpOptions = {
     url:"https://api.themoviedb.org/3/search/movie?query="
   }
@@ -29,7 +30,9 @@ export class MoviesPage implements OnInit {
     async getKW() {
     this.keyword = await this.ds.get('kw');
     this.options.url = this.options.url + this.keyword + "&api_key=" + this.apiKey;
-    this.mhs.get(this.options)
+    let result = await this.mhs.get(this.options)
+    this.movieInfo = result.data.results
+    console.log(JSON.stringify(this.movieInfo))
   }
 
 }
