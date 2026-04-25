@@ -11,21 +11,17 @@ import { DataService } from '../services/data.service';
   standalone: true,
   imports: [IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonCard, IonCardHeader, IonCardTitle, IonButton]
 })
-export class FavouritesPage implements OnInit {
+export class FavouritesPage {
 
   favourites: any[] = [];
 
   constructor(private ds: DataService) { }
 
-  ngOnInit() {
-    this.loadFavourites(); 
+  async ionViewWillEnter() {
+    this.favourites = await this.ds.get('favourites') || []; 
   }
 
-  async loadFavourites() {
-    this.favourites = await this.ds.get('favourites') || [];
-  }
-
-  async removeFavourite(movie: any) {
+  async removeFromFavourites(movie: any) {
     this.favourites = this.favourites.filter((m: any) => m.id !== movie.id);
     await this.ds.set('favourites', this.favourites);
     }
