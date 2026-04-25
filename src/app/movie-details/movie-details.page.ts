@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardTitle, IonCardSubtitle, IonCardHeader } from '@ionic/angular/standalone';
 import { DataService } from '../services/data.service';
 import { MyHttpService } from '../services/my-http.service';
 import { HttpOptions } from '@capacitor/core';
@@ -11,7 +11,7 @@ import { HttpOptions } from '@capacitor/core';
   templateUrl: './movie-details.page.html',
   styleUrls: [],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonCard, IonCardTitle, IonCardSubtitle, IonCardHeader]
 })
 export class MovieDetailsPage {
 

@@ -18,7 +18,7 @@
   </ion-card-header>
 
   <ion-card-content><strong>Description: </strong>{{movie.overview}}</ion-card-content>
-  <ion-button (click)="openDetailsPage()">+ Details</ion-button>
+  <ion-button (click)="openDetailsPage(movie)">+ Details</ion-button>
   <ion-button (click)="addToFavourites(movie)">Add to Favourites</ion-button>
   <ion-button (click)="openFavourites()">Go To Favourites</ion-button>
 

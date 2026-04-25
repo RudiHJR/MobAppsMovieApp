@@ -36,7 +36,8 @@ export class MoviesPage implements OnInit {
     console.log(JSON.stringify(this.movieInfo))
   }
 
-async openDetailsPage() {
+async openDetailsPage(movie: any) {
+  await this.ds.set('selectedMovie', movie);
   this.router.navigate(['/movie-details'])
 }
 
