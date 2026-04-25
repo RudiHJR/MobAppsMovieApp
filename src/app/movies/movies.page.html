@@ -14,7 +14,10 @@
     <ion-card-subtitle><strong>Release Date: </strong>{{movie.release_date}}</ion-card-subtitle>
     <ion-card-subtitle><strong>Movie Score: </strong> {{movie.vote_average}}</ion-card-subtitle>
   </ion-card-header>
-  
+
   <ion-card-content><strong>Description: </strong>{{movie.overview}}</ion-card-content>
+  <ion-button (click)="openDetailsPage()">+ Details</ion-button>
+  <ion-button (click)="openDetailsPage()">Add to Favourites</ion-button>
+
 </ion-card>
 </ion-content>

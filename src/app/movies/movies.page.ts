@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent } from '@ionic/angular/standalone';
+import { Router } from '@angular/router';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, IonButton } from '@ionic/angular/standalone';
 import { DataService } from '../services/data.service';
 import { MyHttpService } from '../services/my-http.service';
 import { HttpOptions } from '@capacitor/core';
@@ -11,7 +12,7 @@ import { HttpOptions } from '@capacitor/core';
   templateUrl: './movies.page.html',
   styleUrls: [],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, IonButton]
 })
 export class MoviesPage implements OnInit {
 
@@ -22,7 +23,7 @@ export class MoviesPage implements OnInit {
     url:"https://api.themoviedb.org/3/search/movie?query="
   }
 
-  constructor(private ds:DataService, private mhs: MyHttpService) { }
+  constructor(private ds:DataService, private mhs: MyHttpService, private router: Router) { }
 
   ngOnInit() {
     this.getKW();
@@ -34,5 +35,10 @@ export class MoviesPage implements OnInit {
     this.movieInfo = result.data.results
     console.log(JSON.stringify(this.movieInfo))
   }
+
+async openDetailsPage() {
+  this.router.navigate(['/movie-details'])
+}
+
 
 }
