@@ -44,11 +44,10 @@ async openFavourites() {
   this.router.navigate(['/favourites']);
 }
 
-
 async addToFavourites(movie: any) {
   let favourites = await this.ds.get('favourites') || [];
   favourites.push(movie);
   await this.ds.set('favourites', favourites);
-
+//
 }
 }
