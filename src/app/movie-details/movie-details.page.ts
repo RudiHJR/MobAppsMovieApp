@@ -13,7 +13,7 @@ import { HttpOptions } from '@capacitor/core';
   standalone: true,
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonCard, IonCardTitle, IonCardSubtitle, IonCardHeader]
 })
-export class MovieDetailsPage {
+export class MovieDetailsPage implements OnInit {
 
   movie: any;
   castAndCrew: any;
@@ -21,10 +21,13 @@ export class MovieDetailsPage {
 
   constructor(private ds:DataService, private mhs: MyHttpService) { }
 
-  async ionViewWillEnter() {
+  ngOnInit() {
+      this.getDetails();
+    }
+
+  async getDetails() {
   this.movie = await this.ds.get('selectedMovie');
-  let options: HttpOptions = {
-    url: "https://api.themoviedb.org/3/movie" + this.movie.id + "/credits?api_key=" + this.apiKey
+  let options: HttpOptions = {url: "https://api.themoviedb.org/3/movie/" + this.movie.id + "/credits?api_key=" + this.apiKey
   };
 
   let result = await this.mhs.get(options);
