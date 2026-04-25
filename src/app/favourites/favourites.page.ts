@@ -9,7 +9,7 @@ import { DataService } from '../services/data.service';
   templateUrl: './favourites.page.html',
   styleUrls: [],
   standalone: true,
-  imports: [IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonCard, IonCardHeader, IonCardTitle, IonButton]
+  imports: [IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonCard, IonCardHeader, IonCardTitle, IonButton, IonContent]
 })
 export class FavouritesPage {
 

@@ -4,9 +4,12 @@
   </ion-toolbar>
 </ion-header>
 
+<ion-content [fullscreen]="true">
 <ion-card *ngFor="let movie of favourites"> 
   <img src= "{{'https://image.tmdb.org/t/p/w200' + movie.poster_path}}" />
   <ion-card-header>
     <ion-card-title>{{movie.original_title}}</ion-card-title>
+    </ion-card-header>
     <ion-button (click)="removeFromFavourites(movie)">Remove Favourite</ion-button>
-  </ion-card-header>
+  </ion-card>
+</ion-content>
