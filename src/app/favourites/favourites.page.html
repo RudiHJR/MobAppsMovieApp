@@ -11,6 +11,7 @@
   <ion-card-header>
     <ion-card-title>{{movie.original_title}}</ion-card-title>
     </ion-card-header>
+    <ion-button (click)="openDetailsPage(movie)">+ Details</ion-button>
     <ion-button (click)="removeFromFavourites(movie)">Remove Favourite</ion-button>
   </ion-card>
 </ion-content>

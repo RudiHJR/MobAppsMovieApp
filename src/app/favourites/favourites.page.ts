@@ -29,4 +29,8 @@ export class FavouritesPage {
     async openHome() {
       this.router.navigate(['/home']);
      }
+     async openDetailsPage(movie:any) {
+      await this.ds.set('selectedMovie', movie);
+      this.router.navigate(['/movie-details']);
+     }
 }
