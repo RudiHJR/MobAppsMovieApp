@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonCardHeader, IonCardTitle, IonCardSubtitle } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCard, IonCardContent } from '@ionic/angular/standalone';
 import { MyHttpService } from '../services/my-http.service';
 import { DataService } from '../services/data.service';
 import { HttpOptions } from '@capacitor/core';
@@ -12,7 +12,7 @@ import { HttpOptions } from '@capacitor/core';
   templateUrl: './cast-details.page.html',
   styleUrls: [],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButton, IonCardTitle, IonCardSubtitle]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButton, IonCardTitle, IonCardSubtitle, IonCard, IonCardHeader, IonCardContent]
 })
 export class CastDetailsPage {
 
@@ -22,7 +22,7 @@ export class CastDetailsPage {
 
   constructor(private ds: DataService, private mhs: MyHttpService, private router: Router) { }
 
-  async ionWillEnter() {
+  async ionViewWillEnter() {
     let selectedCast = await this.ds.get('selectedCast');
     let castOptions: HttpOptions = {
       url: "https://api.themoviedb.org/3/person/" + selectedCast.id + "?api_key=" + this.apiKey
