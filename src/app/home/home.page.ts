@@ -34,7 +34,8 @@ export class HomePage implements OnInit{
     this.trendingMovies = result.data.results;
   }
  async openMovies() {
-   await this.ds.set("kw" , this.keyword);
+   if (this.keyword == '') return;
+    await this.ds.set("kw" , this.keyword);
     this.router.navigate(['/movies'])
   }
 
