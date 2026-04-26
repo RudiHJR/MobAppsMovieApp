@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -14,7 +14,7 @@ import { HttpOptions } from '@capacitor/core';
   standalone: true,
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonCard, IonCardTitle, IonCardSubtitle, IonCardHeader, IonButton]
 })
-export class MovieDetailsPage implements OnInit {
+export class MovieDetailsPage {
 
   movie: any;
   castAndCrew: any;
@@ -22,7 +22,7 @@ export class MovieDetailsPage implements OnInit {
 
   constructor(private ds:DataService, private mhs: MyHttpService, private router:Router) { }
 
-  ngOnInit() {
+  async ionViewWillEnter() {
       this.getDetails();
     }
 
@@ -39,7 +39,6 @@ export class MovieDetailsPage implements OnInit {
   await this.ds.set('selectedCast', cast);
   this.router.navigate(['/cast-details'])
  }
-
 
  async openFavourites() {
    this.router.navigate(['/favourites'])
