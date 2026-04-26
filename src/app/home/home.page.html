@@ -10,10 +10,16 @@
   <ion-button (click)="openFavourites()">My Favourites</ion-button>
 
 <ion-card *ngFor="let movie of trendingMovies">
-  <img src="{{'https:image.tmdb.org/t/p/w200' + movie.poster_path}}"/>
-<ion-card-header>
-  <ion-card-title>{{movie.original_title}}</ion-card-title>
-</ion-card-header>
-<ion-button (click)="openDetailsPage(movie)">+ Details</ion-button>
+  <img src= "{{'https://image.tmdb.org/t/p/w200' + movie.poster_path}}" />
+  <ion-card-header>
+    <ion-card-title>{{movie.original_title}}</ion-card-title>
+    <ion-card-subtitle><strong>Release Date: </strong>{{movie.release_date}}</ion-card-subtitle>
+    <ion-card-subtitle><strong>Movie Score: </strong> {{movie.vote_average}}</ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card-content><strong>Description: </strong>{{movie.overview}}</ion-card-content>
+  <ion-button (click)="openDetailsPage(movie)">+ Details</ion-button>
+  <ion-button (click)="openFavourites()">Go To Favourites</ion-button>
+
 </ion-card>
 </ion-content>
