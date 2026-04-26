@@ -39,7 +39,6 @@ export class HomePage implements OnInit{
   }
 
   async openFavourites() {
-    await this.ds.set("kw" , this.keyword);
      this.router.navigate(['/favourites'])
    }
    async openDetailsPage(movie:any) {

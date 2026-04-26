@@ -11,10 +11,10 @@
   <ion-title>{{movie?.original_title}}: Cast and Crew</ion-title>
 
   <ion-card *ngFor="let member of castAndCrew?.cast">
-  <img *ngIf= "member.profile_path" src="{{'https://image.tmdb.org/t/p/w200' + member.profile_path}}" />
+  <img *ngIf= "member.profile_path" src="{{'https://image.tmdb.org/t/p/w200' + member?.profile_path}}" />
 <ion-card-header>
-    <ion-card-title>Actor: {{member.name}}</ion-card-title>
-  <ion-card-subtitle>Character: {{member.character}}</ion-card-subtitle>
+    <ion-card-title>Actor: {{member?.name}}</ion-card-title>
+  <ion-card-subtitle>Character: {{member?.character}}</ion-card-subtitle>
 </ion-card-header>
   <ion-button (click)="openCastDetails(member)">More from this Actor</ion-button>
 </ion-card>
