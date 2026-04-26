@@ -8,9 +8,9 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">cast-details</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <img src ="{{'https://image.tmdb.org/t/p/w200' + cast.profile_path}}"/>
+    <ion-card-title>{{cast.name}}</ion-card-title>
+    <ion-card-subtitle><strong>Release Date: </strong></ion-card-subtitle>
+    <ion-card-subtitle><strong>Movie Score: </strong> </ion-card-subtitle>
+
 </ion-content>
