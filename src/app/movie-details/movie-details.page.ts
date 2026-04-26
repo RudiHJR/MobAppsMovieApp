@@ -34,6 +34,13 @@ export class MovieDetailsPage implements OnInit {
   let result = await this.mhs.get(options);
   this.castAndCrew = result.data;
  }
+
+ async openCastDetails(cast: any) {
+  await this.ds.set('selectedCast', cast);
+  this.router.navigate(['/cast-details'])
+ }
+
+
  async openFavourites() {
    this.router.navigate(['/favourites'])
  }
