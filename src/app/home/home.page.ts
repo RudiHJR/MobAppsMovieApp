@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonInput, IonButton, IonCard, IonCardHeader, IonCardTitle } from '@ionic/angular/standalone';
 import { DataService } from '../services/data.service';
@@ -10,9 +11,9 @@ import { HttpOptions } from '@capacitor/core';
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: [],
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonInput, FormsModule, IonButton, IonCard, IonCardHeader, IonCardTitle],
+  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonInput, FormsModule, IonButton, IonCard, IonCardHeader, IonCardTitle, CommonModule],
 })
-export class HomePage {
+export class HomePage implements OnInit{
 
   keyword: string = ""
   trendingMovies: any;
@@ -29,6 +30,7 @@ export class HomePage {
       url: "https://api.themoviedb.org/3/trending/movie/day?api_key=" + this.apiKey
     };
     let result = await this.mhs.get(options);
+    console.log(result);
     this.trendingMovies = result.data.results;
   }
  async openMovies() {
