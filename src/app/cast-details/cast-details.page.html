@@ -8,8 +8,9 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <img src ="{{'https://image.tmdb.org/t/p/w200' + cast.profile_path}}"/>
-    <ion-card-title>{{cast.name}}</ion-card-title>
+  <img *ngIf="cast?.profile_path" src ="{{'https://image.tmdb.org/t/p/w200' + cast?.profile_path}}" />
+    <ion-card-title>{{cast?.name}}</ion-card-title>
+    <ion-card-title>{{cast?.birthday}}</ion-card-title>
     <ion-card-subtitle><strong>Release Date: </strong></ion-card-subtitle>
     <ion-card-subtitle><strong>Movie Score: </strong> </ion-card-subtitle>
 

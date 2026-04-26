@@ -14,7 +14,7 @@ import { HttpOptions } from '@capacitor/core';
   standalone: true,
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButton, IonCardTitle, IonCardSubtitle]
 })
-export class CastDetailsPage implements OnInit {
+export class CastDetailsPage {
 
   cast: any;
   otherMovies: any;
@@ -22,19 +22,17 @@ export class CastDetailsPage implements OnInit {
 
   constructor(private ds: DataService, private mhs: MyHttpService, private router: Router) { }
 
-  ngOnInit() {
-    this.getCastDetails();
-    }
-
-    async getCastDetails() {
+  async ionWillEnter() {
     let selectedCast = await this.ds.get('selectedCast');
     let castOptions: HttpOptions = {
       url: "https://api.themoviedb.org/3/person/" + selectedCast.id + "?api_key=" + this.apiKey
     };
+  
     let castResult = await this.mhs.get(castOptions);
     this.cast = castResult.data;
+
     let creditsOptions: HttpOptions = {
-      url: "https://api.themoviedb.org/3/person/" + selectedCast.id + "/movie_credits?api_key=" + this.apiKey
+      url: "https://api.themoviedb.org/3/person" + selectedCast.id + "/movie_credits?api_key" + this.apiKey
     };
     let creditsResult = await this.mhs.get(creditsOptions);
     this.otherMovies = creditsResult.data.cast;
