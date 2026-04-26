@@ -8,13 +8,14 @@
 
 <ion-content [fullscreen]="true">
   
-  <ion-title>{{movie.original_title}}</ion-title>
+  <ion-title>{{movie.original_title}}: Cast and Crew</ion-title>
   <ion-card *ngFor="let member of castAndCrew.cast">
   <img src= "{{'https://image.tmdb.org/t/p/w200' + member.profile_path}}" />
 
 <ion-card-header>
-  <ion-card-title>{{member.name}}</ion-card-title>
-  <ion-card-subtitle>{{member.character}}</ion-card-subtitle>
+  <ion-card-title>Character: {{member.character}}</ion-card-title>
+  <ion-card-subtitle>Impersonated by: {{member.name}}</ion-card-subtitle>
+  
 </ion-card-header>
 </ion-card>
 
