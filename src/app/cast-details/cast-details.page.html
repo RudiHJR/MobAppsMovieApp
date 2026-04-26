@@ -19,4 +19,13 @@
   </ion-card-header>
   <ion-card-content><strong>Biography: </strong>{{cast?.biography}}</ion-card-content>
   </ion-card>
+
+  <h2>{{cast?.name}} also starred in: </h2>
+<ion-card *ngFor="let movie of otherMovies">
+  <img *ngIf="movie?.poster_path" src="{{'https://image.tmdb.org/t/p/w200' + movie?.poster_path}}"/>
+  <ion-card-header>
+    <ion-card-title>{{movie?.title}}</ion-card-title>
+  </ion-card-header>
+</ion-card>
 </ion-content>
+

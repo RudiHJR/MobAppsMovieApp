@@ -32,7 +32,7 @@ export class CastDetailsPage {
     this.cast = castResult.data;
 
     let creditsOptions: HttpOptions = {
-      url: "https://api.themoviedb.org/3/person" + selectedCast.id + "/movie_credits?api_key" + this.apiKey
+      url: "https://api.themoviedb.org/3/person/" + selectedCast.id + "/movie_credits?api_key=" + this.apiKey
     };
     let creditsResult = await this.mhs.get(creditsOptions);
     this.otherMovies = creditsResult.data.cast;
