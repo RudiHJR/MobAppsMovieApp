@@ -1,13 +1,15 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>G00473368 - Home Page</ion-title>
+    <ion-button (click)="openFavourites()">My Favourites</ion-button>
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-input label="Enter Movie Keyword" placeholder="keyword" [(ngModel)]="keyword"></ion-input>
   <ion-button (click)="openMovies()">Search</ion-button>
-  <ion-button (click)="openFavourites()">My Favourites</ion-button>
+  <h2>List of movies with keyword: </h2>
 
 <ion-card *ngFor="let movie of trendingMovies">
   <img src= "{{'https://image.tmdb.org/t/p/w200' + movie.poster_path}}" />
@@ -19,7 +21,6 @@
 
   <ion-card-content><strong>Description: </strong>{{movie.overview}}</ion-card-content>
   <ion-button (click)="openDetailsPage(movie)">+ Details</ion-button>
-  <ion-button (click)="openFavourites()">Go To Favourites</ion-button>
 
 </ion-card>
 </ion-content>
