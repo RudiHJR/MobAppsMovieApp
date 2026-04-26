@@ -7,9 +7,18 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <img *ngIf="movie?.poster_path" src="{{'https://image.tmdb.org/t/p/w500' + movie?.poster_path}}" />
-  <ion-title>{{movie?.original_title}}: Cast and Crew</ion-title>
+  <img *ngIf="movie?.backdrop_path" src="{{'https://image.tmdb.org/t/p/w1280' + movie?.backdrop_path}}"/>
+  <h1><strong>{{movie?.original_title}}</strong></h1>
+  <hr>
+  <h3><strong>Full Movie Details:</strong></h3>
+  <h5><strong>Released: </strong> {{movie?.release_date}}</h5>
+  <h5><strong>Movie Score: </strong> {{movie?.vote_average}}</h5>
+  <h5><strong>Popularity: </strong> {{movie?.popularity}}</h5>
+  <h5><strong>Language: </strong> {{movie?.original_language}}</h5>
+  <h5><strong>Overview: </strong> {{movie?.overview}}</h5>
+<hr>
 
+  <h3><strong>Cast and Crew:</strong></h3>
   <ion-card *ngFor="let member of castAndCrew?.cast">
   <img *ngIf= "member.profile_path" src="{{'https://image.tmdb.org/t/p/w200' + member?.profile_path}}" />
 <ion-card-header>
