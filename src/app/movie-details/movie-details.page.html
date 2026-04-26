@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  
+  <img src= "{{'https://image.tmdb.org/t/p/w200' + movie.poster_path}}" />
   <ion-title>{{movie.original_title}}: Cast and Crew</ion-title>
   <ion-card *ngFor="let member of castAndCrew.cast">
   <img src= "{{'https://image.tmdb.org/t/p/w200' + member.profile_path}}" />

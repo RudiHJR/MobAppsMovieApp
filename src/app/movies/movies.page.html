@@ -1,6 +1,8 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>G00473368 - Movies</ion-title>
+    <ion-button (click)="openFavourites()">Go To Favourites</ion-button>
+    <ion-button (click)="openHome()">Return Home</ion-button>
   </ion-toolbar>
 </ion-header>
 
@@ -20,7 +22,5 @@
   <ion-card-content><strong>Description: </strong>{{movie.overview}}</ion-card-content>
   <ion-button (click)="openDetailsPage(movie)">+ Details</ion-button>
   <ion-button (click)="addToFavourites(movie)">Add to Favourites</ion-button>
-  <ion-button (click)="openFavourites()">Go To Favourites</ion-button>
-
 </ion-card>
 </ion-content>
