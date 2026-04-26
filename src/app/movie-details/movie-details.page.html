@@ -2,13 +2,13 @@
   <ion-toolbar>
     <ion-title>G00473368 - Movie Details</ion-title>
     <ion-button (click)="openFavourites()">My Favourites</ion-button>
-    <ion-title>{{movie.original_title}}</ion-title>
+    <ion-button (click)="openHome()">Return Home</ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   
-  
+  <ion-title>{{movie.original_title}}</ion-title>
   <ion-card *ngFor="let member of castAndCrew.cast">
   <img src= "{{'https://image.tmdb.org/t/p/w200' + member.profile_path}}" />
 

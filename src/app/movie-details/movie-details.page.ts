@@ -37,5 +37,8 @@ export class MovieDetailsPage implements OnInit {
  async openFavourites() {
    this.router.navigate(['/favourites'])
  }
+ async openHome() {
+  this.router.navigate(['/home']);
+ }
 
 }
