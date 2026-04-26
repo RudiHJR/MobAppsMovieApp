@@ -7,16 +7,15 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <img src= "{{'https://image.tmdb.org/t/p/w200' + movie.poster_path}}" />
+  <img src= "{{'https://image.tmdb.org/t/p/w500' + movie.poster_path}}" />
   <ion-title>{{movie.original_title}}: Cast and Crew</ion-title>
   <ion-card *ngFor="let member of castAndCrew.cast">
   <img src= "{{'https://image.tmdb.org/t/p/w200' + member.profile_path}}" />
 
 <ion-card-header>
-  <ion-card-title>Character: {{member.character}}</ion-card-title>
-  <ion-card-subtitle>Impersonated by: {{member.name}}</ion-card-subtitle>
-  
+  <ion-card-title>Actor: {{member.name}}</ion-card-title>
+  <ion-card-subtitle>Character: {{member.character}}</ion-card-subtitle>
+  <ion-button (click)="openFavourites()">More from this Actor</ion-button>
 </ion-card-header>
 </ion-card>
-
 </ion-content>
