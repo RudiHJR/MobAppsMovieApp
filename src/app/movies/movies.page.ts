@@ -33,7 +33,6 @@ export class MoviesPage implements OnInit {
     this.options.url = this.options.url + this.keyword + "&api_key=" + this.apiKey;
     let result = await this.mhs.get(this.options)
     this.movieInfo = result.data.results
-    console.log(JSON.stringify(this.movieInfo))
   }
 
 async openDetailsPage(movie: any) {

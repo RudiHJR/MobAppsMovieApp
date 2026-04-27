@@ -9,7 +9,8 @@
 
 
 <ion-content [fullscreen]="true">
-{{keyword}}
+  <hr>
+<ion-card-title>List of Movies containing "{{keyword}}"</ion-card-title>
 <hr>
 
 <ion-button (click)="sortByScoreDescending()"> Highest Score First</ion-button>

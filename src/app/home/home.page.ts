@@ -30,7 +30,6 @@ export class HomePage implements OnInit{
       url: "https://api.themoviedb.org/3/trending/movie/day?api_key=" + this.apiKey
     };
     let result = await this.mhs.get(options);
-    console.log(result);
     this.trendingMovies = result.data.results;
   }
  async openMovies() {
