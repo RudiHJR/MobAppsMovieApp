@@ -46,10 +46,5 @@ export class MovieDetailsPage {
  async openHome() {
   this.router.navigate(['/home']);
  }
-
- async openMovies() {
-  this.router.navigate(['/movies']);
- }
-
 }
 //

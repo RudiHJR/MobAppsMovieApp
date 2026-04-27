@@ -17,7 +17,7 @@
     <ion-card-subtitle *ngIf="cast?.place_of_birth"><strong>Birthplace: </strong> {{cast?.place_of_birth}}</ion-card-subtitle>
     <ion-card-subtitle *ngIf="cast?.also_known_as"><strong>Also Known As: </strong> {{cast?.also_known_as}}</ion-card-subtitle>
   </ion-card-header>
-  <ion-card-content><strong>Biography: </strong>{{cast?.biography}}</ion-card-content>
+  <ion-card-content *ngIf="cast?.biography"><strong>Biography: </strong>{{cast?.biography}}</ion-card-content>
   </ion-card>
 
   <h2>{{cast?.name}} also starred in: </h2>
