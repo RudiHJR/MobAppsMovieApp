@@ -47,5 +47,9 @@ export class MovieDetailsPage {
   this.router.navigate(['/home']);
  }
 
+ async openMovies() {
+  this.router.navigate(['/movies']);
+ }
+
 }
 //

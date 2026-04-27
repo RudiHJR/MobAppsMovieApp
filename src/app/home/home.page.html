@@ -4,13 +4,14 @@
     <ion-button (click)="openFavourites()">My Favourites</ion-button>
   </ion-toolbar>
 <ion-toolbar>
-    <ion-input label="Search a Movie:" placeholder="keyword" [(ngModel)]="keyword"></ion-input>
+    <ion-input label="Search a Movie:" placeholder="enter keyword" [(ngModel)]="keyword"></ion-input>
     <ion-button (click)="openMovies()">Search</ion-button>
   </ion-toolbar>
 </ion-header>
 
   <ion-content [fullscreen]="true">
-<h3> Running out of ideas? Psst... Check out what's trending right now: </h3>
+<h3> Don't know what to search? Psst... 
+  Check out what's trending right now: </h3>
 <ion-card *ngFor="let movie of trendingMovies">
   <img src= "{{'https://image.tmdb.org/t/p/w200' + movie?.poster_path}}" />
   <ion-card-header>
