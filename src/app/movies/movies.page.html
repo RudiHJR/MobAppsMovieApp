@@ -11,8 +11,8 @@
 <ion-card-title>List of Movies containing "{{keyword}}"</ion-card-title>
 <hr>
 
-<ion-button (click)="sortByScoreDescending()"> Highest Score First</ion-button>
-<ion-button (click)="sortByScoreAscending()"> Lowest Score First</ion-button>
+<ion-button (click)="sortHighestScoreFirst()"> Highest Score First</ion-button>
+<ion-button (click)="sortLowestScoreFirst()"> Lowest Score First</ion-button>
 
 <ion-card *ngFor="let movie of movieInfo">
   <img src= "{{'https://image.tmdb.org/t/p/w200' + movie.poster_path}}" />
