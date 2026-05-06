@@ -10,8 +10,7 @@
 </ion-header>
 
   <ion-content [fullscreen]="true">
-<h3> Don't know what to search? Psst... 
-  Check out what's trending right now: </h3>
+<h3> Don't know what to search? Psst... Check out what's trending right now: </h3>
 <ion-card *ngFor="let movie of trendingMovies">
   <img src= "{{'https://image.tmdb.org/t/p/w200' + movie?.poster_path}}" />
   <ion-card-header>

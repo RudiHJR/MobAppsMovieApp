@@ -39,6 +39,11 @@ export class MovieDetailsPage {
   await this.ds.set('selectedCast', cast);
   this.router.navigate(['/cast-details'])
  }
+ async addToFavourites(movie: any) {
+  let favourites = await this.ds.get('favourites') || [];
+  favourites.push(movie);
+  await this.ds.set('favourites', favourites);
+ }
 
  async openFavourites() {
    this.router.navigate(['/favourites'])

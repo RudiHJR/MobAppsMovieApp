@@ -8,6 +8,8 @@
 
 <ion-content [fullscreen]="true">
   <img *ngIf="movie?.backdrop_path" src="{{'https://image.tmdb.org/t/p/w1280' + movie?.backdrop_path}}"/>
+  <hr>
+  <ion-button (click)="addToFavourites(movie)"> Add to Favourites </ion-button>
   <h1><strong>{{movie?.original_title}}</strong></h1>
   <hr>
   <h3><strong>Full Movie Details:</strong></h3>

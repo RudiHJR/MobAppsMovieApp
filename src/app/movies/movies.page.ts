@@ -54,11 +54,11 @@ async openHome() {
   this.router.navigate(['/home']);
  }
 
- sortByScoreAscending() {
+ sortLowestScoreFirst() {
   this.movieInfo.sort((a: any, b:any) => a.vote_average - b.vote_average);
  }
 
- sortByScoreDescending() {
+ sortHighestScoreFirst() {
   this.movieInfo.sort((a: any, b:any) => b.vote_average - a.vote_average);
  }
 
