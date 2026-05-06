@@ -16,35 +16,36 @@ import { HttpOptions } from '@capacitor/core';
 })
 export class CastDetailsPage {
 
-  cast: any;
-  otherMovies: any;
-  apiKey = "9a441077651a243fce67c40cc4c5bf8d"
+  cast: any; //stores all personal details from selected cast member
+  otherMovies: any; //pulls and stores list of all movies this actor has appeared
+  apiKey = "9a441077651a243fce67c40cc4c5bf8d" //api key hardcorded
 
   constructor(private ds: DataService, private mhs: MyHttpService, private router: Router) { }
 
+  //had to use ViewWillEnter instead ngOnInit because the page was only loading once, this was fixed to get fresh data everytime the page is acessed instead
   async ionViewWillEnter() {
-    let selectedCast = await this.ds.get('selectedCast');
-    let castOptions: HttpOptions = {
+    let selectedCast = await this.ds.get('selectedCast'); //loads cast member saved from movie details page
+    let castOptions: HttpOptions = { //concats url to search for cast details from TMBD database
       url: "https://api.themoviedb.org/3/person/" + selectedCast.id + "?api_key=" + this.apiKey
     };
   
-    let castResult = await this.mhs.get(castOptions);
-    this.cast = castResult.data;
+    let castResult = await this.mhs.get(castOptions); //sends request and wait
+    this.cast = castResult.data; //stores all personal information from each cast member
 
-    let creditsOptions: HttpOptions = {
+    let creditsOptions: HttpOptions = { //concats url to search for other movies this cast has appeared also
       url: "https://api.themoviedb.org/3/person/" + selectedCast.id + "/movie_credits?api_key=" + this.apiKey
     };
-    let creditsResult = await this.mhs.get(creditsOptions);
-    this.otherMovies = creditsResult.data.cast;
+    let creditsResult = await this.mhs.get(creditsOptions); //sends request and waits
+    this.otherMovies = creditsResult.data.cast; //stores list of movies the cast appeared
     }
 
-    async openHome() {
+    async openHome() {//route to home
       this.router.navigate(['/home']);
     }
-    async openFavourites() {
+    async openFavourites() { //route to favourites
       this.router.navigate(['/favourites']);
     }
-    async openDetailsPage() {
+    async openDetailsPage() { //route to return to details page
       this.router.navigate(['/movie-details']);
   }
 }
