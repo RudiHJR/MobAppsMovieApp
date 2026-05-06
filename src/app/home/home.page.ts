@@ -37,7 +37,11 @@ export class HomePage implements OnInit{
     await this.ds.set("kw" , this.keyword);
     this.router.navigate(['/movies'])
   }
-
+  async addToFavourites(movie: any) {
+    let favourites = await this.ds.get('favourites') || [];
+    favourites.push(movie);
+    await this.ds.set('favourites', favourites);
+  }
   async openFavourites() {
      this.router.navigate(['/favourites'])
    }
