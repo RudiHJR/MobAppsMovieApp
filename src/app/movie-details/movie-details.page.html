@@ -23,7 +23,7 @@
   <h5><strong>Language: </strong> {{movie?.original_language}}</h5>
   <h5><strong>Overview: </strong> {{movie?.overview}}</h5>
 <hr>
-  <h3><strong>Cast and Crew:</strong></h3>
+  <h3><strong>Cast:</strong></h3>
   <!--   ngFor loopign over every cast member and creates a card to display each one, also using "?" to prevent crashing in case of delays  -->
   <ion-card *ngFor="let member of castAndCrew?.cast">
     <!--   using ngIf if a profile picture exits, with "?" to prevent crashing   -->
@@ -35,4 +35,17 @@
 <!--   passes current cast member object to openCastDetails method to load info from cast clicked on   -->
   <ion-button (click)="openCastDetails(member)">More from this Actor</ion-button>
 </ion-card>
+
+<h3><strong>Crew:</strong></h3>
+<!--   pulls the crew info, ngFor loops through array and creates a card for each .crew found   -->
+  <ion-card *ngFor="let member of castAndCrew?.crew">
+    <!--   using ngIf if a profile picture exits, with "?" to prevent crashing   -->
+    <img *ngIf="member.profile_path" src="{{'https://image.tmdb.org/t/p/w200' + member?.profile_path}}" />
+    <ion-card-header>
+      <ion-card-title>{{member?.name}}</ion-card-title>
+      <ion-card-subtitle>Job: {{member?.job}}</ion-card-subtitle>
+        </ion-card-header>
+        <!--   passes crew member object on to openCastDetails() to know what was clicked -->
+  <ion-button (click)="openCastDetails(member)">More from this Crew Member</ion-button>
+  </ion-card>
 </ion-content>

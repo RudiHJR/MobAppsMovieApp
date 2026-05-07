@@ -34,7 +34,6 @@ export class HomePage implements OnInit{
     this.trendingMovies = result.data.results; // stores the array of movies TMDB returned for trending
   }
 
- 
  async openMovies() {  //openMovies() method launches when search button is clicked
     if (this.keyword == '') return; //as per assignment instruction, if the user clicks an empty search bar it should show the trending movies, so it does nothing
     await this.ds.set("kw" , this.keyword); //saves the keyword for the movies page to read

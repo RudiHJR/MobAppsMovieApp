@@ -1,5 +1,7 @@
 import { Routes } from '@angular/router';
 
+
+//defining routing across the app, pages are only loaded when each route is visited
 export const routes: Routes = [
   {
     path: 'home',

@@ -1,6 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>G00473368 - Cast Details</ion-title>
+    <!--   buttons at the top to open favourites, return to movie details page, and return home   -->
     <ion-button (click)="openFavourites()">My Favourites</ion-button>
     <ion-button (click)="openDetailsPage()">Return to Movie Details</ion-button>
     <ion-button (click)="openHome()">Return Home</ion-button>
@@ -9,8 +10,10 @@
 
 <ion-content [fullscreen]="true">
   <ion-card>
+    <!--   displays picture of the actor if a picture exists, "?" to prevent crashing before this info exists   -->
   <img *ngIf="cast?.profile_path" src ="{{'https://image.tmdb.org/t/p/w200' + cast?.profile_path}}" />
   <ion-card-header>
+    <!--   ngIf to only display a line if content is found   -->
     <ion-card-title>{{cast?.name}}</ion-card-title>
     <ion-card-subtitle *ngIf="cast?.birthday"><strong>Birthdate: </strong> {{cast?.birthday}}</ion-card-subtitle>
     <ion-card-subtitle *ngIf="cast?.deathday"><strong>Date of Death: </strong> {{cast?.deathday}}</ion-card-subtitle>
@@ -19,9 +22,11 @@
   </ion-card-header>
   <ion-card-content *ngIf="cast?.biography"><strong>Biography: </strong>{{cast?.biography}}</ion-card-content>
   </ion-card>
-
+  <!--   uses cast name to introduce other movies they worked also   -->
   <h2>{{cast?.name}} also starred in: </h2>
+  <!--   using ngFor looping through all otherMovies creating a mini display card for each  -->
 <ion-card *ngFor="let movie of otherMovies">
+  <!--   using ngIf to display a movie poster picture if it exists   -->
   <img *ngIf="movie?.poster_path" src="{{'https://image.tmdb.org/t/p/w200' + movie?.poster_path}}"/>
   <ion-card-header>
     <ion-card-title>{{movie?.title}}</ion-card-title>

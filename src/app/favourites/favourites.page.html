@@ -1,17 +1,22 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>G00473368 - My Favourites</ion-title>
+    <!--   button to return to home page   -->
     <ion-button (click)="openHome()">Return Home</ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <!--   ngFor looping all movies inside the favourites arry and displaying them in a card   -->
 <ion-card *ngFor="let movie of favourites"> 
-  <img src= "{{'https://image.tmdb.org/t/p/w200' + movie.poster_path}}" />
+  <!--   movie poster path was already saved when the movie was added as favourite  -->
+  <img src= "{{'https://image.tmdb.org/t/p/w200' + movie?.poster_path}}" />
   <ion-card-header>
     <ion-card-title>{{movie.original_title}}</ion-card-title>
     </ion-card-header>
+    <!--   click button to pass movie object into openDetailsPage() to know which one was selected to open the correct details page   -->
     <ion-button (click)="openDetailsPage(movie)">+ Details</ion-button>
+    <!--   click button to remove favourite, passes the movie object forward to be removed from the array   -->
     <ion-button (click)="removeFromFavourites(movie)">Remove Favourite</ion-button>
   </ion-card>
 </ion-content>
