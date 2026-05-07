@@ -55,10 +55,13 @@ async openHome() {//method to return to home page when clicking on the button
  }
 
  sortLowestScoreFirst() {//extra method to organize movies by score, from 0 to 10, launched by a button in the html page
-  this.movieInfo.sort((a: any, b:any) => a.vote_average - b.vote_average);
- }
-
+  this.movieInfo.sort(function(a: any, b:any) {
+    return a.vote_average - b.vote_average;
+  });
+}
  sortHighestScoreFirst() {//extra method to organize movies by score, from 10 to 0, launched by a button in the html page
-  this.movieInfo.sort((a: any, b:any) => b.vote_average - a.vote_average);
- }
+  this.movieInfo.sort(function(a: any, b:any) {
+    return b.vote_average - a.vote_average;
+  });
+}
 }

@@ -1,6 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>G00473368 - Movies</ion-title>
+    <!--  buttons routing to favourites page and home page    -->
     <ion-button (click)="openFavourites()">My Favourites</ion-button>
     <ion-button (click)="openHome()">Return Home</ion-button>
   </ion-toolbar>
@@ -8,22 +9,28 @@
 
 <ion-content [fullscreen]="true">
   <hr>
+  <!--   reads entered keyword and displays again so the user knows what was searched for   -->
 <ion-card-title>List of Movies containing "{{keyword}}"</ion-card-title>
 <hr>
-
+<!--   sorting buttons to operate the sorting methods in the movies.page.ts, organize by score, highest or lowest first   -->
 <ion-button (click)="sortHighestScoreFirst()"> Highest Score First</ion-button>
 <ion-button (click)="sortLowestScoreFirst()"> Lowest Score First</ion-button>
 
+<!--  ngFor creating a loop at every movie in movieInfo to create a display card for each   -->
 <ion-card *ngFor="let movie of movieInfo">
-  <img src= "{{'https://image.tmdb.org/t/p/w200' + movie.poster_path}}" />
+  <!--   using "?" to prevent crashing as explained before, returns poster from TMDB   -->
+  <img src= "{{'https://image.tmdb.org/t/p/w200' + movie?.poster_path}}" />
   <ion-card-header>
+    <!--   displays title, date and score   -->
     <ion-card-title>{{movie.original_title}}</ion-card-title>
     <ion-card-subtitle><strong>Release Date: </strong>{{movie.release_date}}</ion-card-subtitle>
     <ion-card-subtitle><strong>Movie Score: </strong> {{movie.vote_average}}</ion-card-subtitle>
   </ion-card-header>
 
   <ion-card-content><strong>Description: </strong>{{movie.overview}}</ion-card-content>
+  <!--   passes current movie object clicked on to openDetailsPage so it knows where to acces the info from   -->
   <ion-button (click)="openDetailsPage(movie)">+ Details</ion-button>
+  <!--   passes movie object to addToFavouirites method so it can be saved into favourites array   -->
   <ion-button (click)="addToFavourites(movie)">Add to Favourites</ion-button>
 </ion-card>
 </ion-content>

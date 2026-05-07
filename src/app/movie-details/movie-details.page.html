@@ -1,15 +1,19 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>G00473368 - Movie Details</ion-title>
+    <!--   buttons to take user to favourites and return home   -->
     <ion-button (click)="openFavourites()">My Favourites</ion-button>
     <ion-button (click)="openHome()">Return Home</ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <!--   ngIf to only show movie image if it exists, also added the "?" symbol to prevent crashes, learned the hard way   -->
   <img *ngIf="movie?.backdrop_path" src="{{'https://image.tmdb.org/t/p/w1280' + movie?.backdrop_path}}"/>
   <hr>
+  <!--   passes current movie object to addToFavourites method to it knows which one to save   -->
   <ion-button (click)="addToFavourites(movie)"> Add to Favourites </ion-button>
+  <!--   displays title, date, score, popularity language and overview for each movie   -->
   <h1><strong>{{movie?.original_title}}</strong></h1>
   <hr>
   <h3><strong>Full Movie Details:</strong></h3>
@@ -19,14 +23,16 @@
   <h5><strong>Language: </strong> {{movie?.original_language}}</h5>
   <h5><strong>Overview: </strong> {{movie?.overview}}</h5>
 <hr>
-
   <h3><strong>Cast and Crew:</strong></h3>
+  <!--   ngFor loopign over every cast member and creates a card to display each one, also using "?" to prevent crashing in case of delays  -->
   <ion-card *ngFor="let member of castAndCrew?.cast">
+    <!--   using ngIf if a profile picture exits, with "?" to prevent crashing   -->
   <img *ngIf= "member.profile_path" src="{{'https://image.tmdb.org/t/p/w200' + member?.profile_path}}" />
 <ion-card-header>
     <ion-card-title>Actor: {{member?.name}}</ion-card-title>
   <ion-card-subtitle>Character: {{member?.character}}</ion-card-subtitle>
 </ion-card-header>
+<!--   passes current cast member object to openCastDetails method to load info from cast clicked on   -->
   <ion-button (click)="openCastDetails(member)">More from this Actor</ion-button>
 </ion-card>
 </ion-content>

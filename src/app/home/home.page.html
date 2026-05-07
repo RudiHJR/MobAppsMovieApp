@@ -1,26 +1,33 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>G00473368 - Movie App Home Page</ion-title>
-    <ion-button (click)="openFavourites()">My Favourites</ion-button>
+    <!--   button to open favourites, binded to the click event   -->
+    <ion-button (click)="openFavourites()">My Favourites</ion-button> 
   </ion-toolbar>
 <ion-toolbar>
+  <!--   binding with  ngModel, updates the variable as user types, carried over from class exercise  -->
     <ion-input label="Search a Movie:" placeholder="enter keyword" [(ngModel)]="keyword"></ion-input>
+    <!--  open movies page when clicked on    -->
     <ion-button (click)="openMovies()">Search</ion-button>
   </ion-toolbar>
 </ion-header>
 
   <ion-content [fullscreen]="true">
 <h3> Don't know what to search? Psst... Check out what's trending right now: </h3>
+<!--   ngFor to loop every movie stored in trendingMovies to display each card at front page    -->
 <ion-card *ngFor="let movie of trendingMovies">
+  <!--  usign the symbol "?" prevents the url to crash if a path is not yet available, lessons learned!!    -->
   <img src= "{{'https://image.tmdb.org/t/p/w200' + movie?.poster_path}}" />
   <ion-card-header>
     <ion-card-title>{{movie?.original_title}}</ion-card-title>
+    <!--  shows movie release date and score so the user can see basic info from each movie    -->
     <ion-card-subtitle><strong>Release Date: </strong>{{movie?.release_date}}</ion-card-subtitle>
     <ion-card-subtitle><strong>Movie Score: </strong> {{movie?.vote_average}}</ion-card-subtitle>
   </ion-card-header>
-
   <ion-card-content><strong>Description: </strong>{{movie?.overview}}</ion-card-content>
+  <!--   passes current movie object that was clicked on to the method openDetailsPage so it knows which one was clicked on   -->
   <ion-button (click)="openDetailsPage(movie)">+ Details</ion-button>
+  <!--   passes current movie object to addToFavourites method to it knows which one to save   -->
   <ion-button (click)="addToFavourites(movie)"> Add to Favourites </ion-button>
 
 </ion-card>
