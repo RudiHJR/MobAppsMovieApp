@@ -9,7 +9,7 @@
 <ion-content [fullscreen]="true">
   <!--   ngFor looping all movies inside the favourites arry and displaying them in a card   -->
 <ion-card *ngFor="let movie of favourites"> 
-  <!--   movie poster path was already saved when the movie was added as favourite  -->
+  <!--   movie poster path was already saved when the movie was added as favourite - -->
   <img src= "{{'https://image.tmdb.org/t/p/w200' + movie?.poster_path}}" />
   <ion-card-header>
     <ion-card-title>{{movie.original_title}}</ion-card-title>
